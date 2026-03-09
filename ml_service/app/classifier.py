@@ -1,6 +1,6 @@
 from transformers import (
     PreTrainedModel,
-    PreTrainedTokenizerBase
+    TokenizersBackend
 )
 import torch
 import re
@@ -8,10 +8,10 @@ import re
 class Classifier:
     TARGET_COLS = ['normal', 'insult', 'threat', 'obscenity']
 
-    def __init__(self, model: PreTrainedModel, tokenizer: PreTrainedTokenizerBase):
+    def __init__(self, model: PreTrainedModel, tokenizer: TokenizersBackend):
+        self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
         self.model = self.initialize_model(model)
         self.tokenizer = tokenizer
-        self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
     def predict(self, text: str, threshold: float = 0.5):
         """
@@ -37,8 +37,8 @@ class Classifier:
 
         return {
             "text": text,
-            "predictions": {col: bool(predictions[i]) for i, col in enumerate(self.TARGET_COLS)},
-            "probabilities": {col: round(float(probs[i]), 4) for i, col in enumerate(self.TARGET_COLS)}
+            "predictions": {col: bool(predictions[0][i]) for i, col in enumerate(self.TARGET_COLS)},
+            "probabilities": {col: round(float(probs[0][i]), 4) for i, col in enumerate(self.TARGET_COLS)}
         }
 
     def preprocess(self, text: str) -> str:
