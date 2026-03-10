@@ -11,7 +11,7 @@ class Config:
         self.RABBITMQ_HOST: str = os.getenv("RABBITMQ_HOST")
         self.RABBITMQ_DEFAULT_USER: str = os.getenv("RABBITMQ_DEFAULT_USER")
         self.RABBITMQ_DEFAULT_PASS: str = os.getenv("RABBITMQ_DEFAULT_PASS")
-        self.RABBITMQ_PORT: str = os.getenv("RABBITMQ_PORT")
+        self.RABBITMQ_PORT: int = int(os.getenv("RABBITMQ_PORT"))
 
     def validate(self):
                                                
