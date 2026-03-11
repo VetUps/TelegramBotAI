@@ -28,12 +28,14 @@ services:
     container_name: ml_service
     restart: unless-stopped
     env_file:
-      - .env
+      - .env.docker
     depends_on:
       rabbitmq:
         condition: service_healthy
     networks:
       - app_network
+    environment:
+      - PYTHONUNBUFFERED=1
 
 networks:
   app_network:
