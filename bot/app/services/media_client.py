@@ -12,6 +12,54 @@ async def generate_image_bytes(prompt: str) -> bytes | str:
     }
     
     payload = {
+        "model": "qwen-image-2.0-2026-03-03",
+        "input": {
+            "messages": [{
+                "role": "user",
+                "content": [{"text": prompt}]
+            }]
+        },
+        "parameters": {
+            "size": "1024*1024",
+            "n": 1
+        }
+    }
+
+    async with httpx.AsyncClient(timeout=120.0) as client:
+        try:
+            # Отправляем запрос на генерацию
+            response = await client.post(url, json=payload, headers=headers)
+            data = response.json()
+
+            if "output" not in data:
+                return f"error: DashScope API Error {data}"
+
+            content0 = data["output"]["choices"][0]["message"]["content"][0]
+            image_url = content0.get("image") or content0.get("image_url") or content0.get("url")
+            
+            if not image_url:
+                return f"error: Не нашел ссылку на картинку в ответе: {content0}"
+
+            # Скачиваем картинку в память
+            image_response = await client.get(image_url, timeout=60.0)
+            if image_response.status_code != 200:
+                 return f"error: Не удалось скачать картинку по ссылке. Статус: {image_response.status_code}"
+            
+            return image_response.content
+
+        except Exception as e:
+            return f"error: {e}"
+        
+
+    """Генерирует картинку, скачивает её и возвращает байты. При ошибке возвращает строку с описанием."""
+    url = "https://dashscope-intl.aliyuncs.com/api/v1/services/aigc/multimodal-generation/generation"
+    
+    headers = {
+        "Authorization": f"Bearer {config.QWEN_API}",
+        "Content-Type": "application/json"
+    }
+    
+    payload = {
         "model": "wan2.2-t2i-plus",
         "input": {
             "messages": [{
