@@ -1,0 +1,44 @@
+services:
+  rabbitmq:
+    image: rabbitmq:4-management
+    container_name: broker
+    restart: unless-stopped
+    ports:
+      - '15672:15672'
+      - '5672:5672'
+    env_file:
+      - .env
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_DEFAULT_USER}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_DEFAULT_PASS}
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    healthcheck:
+      test: [ "CMD", "rabbitmq-diagnostics", "ping" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - app_network
+
+  ml_service:
+    build:
+      context: /ml_service
+      dockerfile: Dockerfile
+    container_name: ml_service
+    restart: unless-stopped
+    env_file:
+      - .env.docker
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+    networks:
+      - app_network
+    environment:
+      - PYTHONUNBUFFERED=1
+
+networks:
+  app_network:
+
+volumes:
+  rabbitmq_data:
