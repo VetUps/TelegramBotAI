@@ -1,7 +1,46 @@
-python-dotenv>=1.0.1          # Для безопасной загрузки токенов и ключей из .env файла
-
-fastapi # Фреймворк для создания вашего внутреннего API
-uvicorn[standard] # Быстрый ASGI-сервер для запуска FastAPI
-transformers # Библиотека от Hugging Face для запуска дообученных моделей
-torch # PyTorch (основной движок для трансформеров)
-pydantic # Для валидации данных в FastAPI (обычно ставится сам)
+h11~=0.16.0
+pip~=23.2.1
+Jinja2~=3.1.6
+pika>=1.3.0
+rich~=14.3.3
+typing_extensions~=4.15.0
+Pygments~=2.19.2
+markdown-it-py~=4.0.0
+colorama~=0.4.6
+PyYAML~=6.0.3
+click~=8.3.1
+httpcore~=1.0.9
+idna~=3.11
+httpx~=0.28.1
+mdurl~=0.1.2
+numpy~=2.4.3
+setuptools~=82.0.1
+regex~=2026.2.28
+sympy~=1.14.0
+mpmath~=1.3.0
+filelock~=3.25.0
+tqdm~=4.67.3
+networkx~=3.6.1
+fsspec~=2026.2.0
+typer~=0.24.1
+shellingham~=1.5.4
+MarkupSafe~=3.0.3
+certifi~=2026.2.25
+anyio~=4.12.1
+identify~=2.6.17
+pydantic~=2.12.5
+pydantic_core~=2.41.5
+annotated-types~=0.7.0
+starlette~=0.52.1
+pre_commit~=4.5.1
+cfgv~=3.5.0
+packaging~=26.0
+platformdirs~=4.9.4
+tokenizers~=0.22.2
+virtualenv~=21.2.0
+distlib~=0.4.0
+safetensors~=0.7.0
+huggingface_hub~=1.6.0
+transformers~=5.3.0
+python-dotenv~=1.2.2
+pyasyncore~=1.0.5
