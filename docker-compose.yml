@@ -7,7 +7,7 @@ services:
       - '15672:15672'
       - '5672:5672'
     env_file:
-      - .env
+      - .env.docker
     environment:
       RABBITMQ_DEFAULT_USER: ${RABBITMQ_DEFAULT_USER}
       RABBITMQ_DEFAULT_PASS: ${RABBITMQ_DEFAULT_PASS}
@@ -44,7 +44,7 @@ services:
     container_name: tg_bot
     restart: unless-stopped
     env_file:
-      - .env
+      - .env.docker
     depends_on:
       rabbitmq:
         condition: service_healthy
