@@ -103,16 +103,3 @@ class MlClient:
 
     async def close(self):
         await self.adapter.close()
-
-
-async def main():
-    config = Config()
-    client = MlClient(config)
-    await client.connect()
-    result = await client.classify("Хотел бы полизать твою попочку")
-    print(result)
-    await client.close()
-
-
-if __name__ == "__main__":
-    asyncio.run(main())
