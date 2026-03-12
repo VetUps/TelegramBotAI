@@ -1,6 +1,7 @@
-python-dotenv # Для безопасной загрузки токенов и ключей из .env файла
-
-aiogram # Асинхронный фреймворк для Telegram-бота
-httpx # Для быстрых асинхронных запросов к вашему API и погоде
-
-google-generativeai # Официальный SDK для работы с Google AI Studio (Gemini)
+dashscope
+aiogram>=3.4.0
+httpx>=0.27.0
+openai>=1.14.0
+dashscope>=1.14.0
+google-generativeai>=0.4.0
+python-dotenv>=1.0.1
