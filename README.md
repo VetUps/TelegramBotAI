@@ -1,4 +1,4 @@
-<img width="435" height="232" alt="image" src="https://github.com/user-attachments/assets/6ecfa39d-b8c0-44a8-880c-83ba49af0e07" /><img width="520" height="479" alt="image" src="https://github.com/user-attachments/assets/6a049377-1bc4-4ed0-acbe-bea682f90555" /># TelegramBotAI — Универсальный телеграм бот с разнообразными ИИ
+# TelegramBotAI — Универсальный телеграм бот с разнообразными ИИ
 
 ## Скриншот главного меню
 
