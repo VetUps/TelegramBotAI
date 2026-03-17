@@ -1,4 +1,4 @@
-# TelegramBotAI — Универсальный телеграм бот с разнообразными ИИ
+<img width="435" height="232" alt="image" src="https://github.com/user-attachments/assets/6ecfa39d-b8c0-44a8-880c-83ba49af0e07" /><img width="520" height="479" alt="image" src="https://github.com/user-attachments/assets/6a049377-1bc4-4ed0-acbe-bea682f90555" /># TelegramBotAI — Универсальный телеграм бот с разнообразными ИИ
 
 ## Скриншот главного меню
 
@@ -60,6 +60,22 @@ API от DeepSeek для доступа к одноимённой языково
    ```bash
    docker-compose up --build
    ```
+
+---
+
+## Обзор функций
+
+1. Узнаём скидки на желаемые игры. Нажав на кнопку "Скидка на игры" и введя точное название игры можно узнать, есть ли на неё скида.
+<img width="520" height="479" alt="image" src="https://github.com/user-attachments/assets/df75240a-f3fb-4325-beae-252a5f35efe5" />
+
+2. Определяем тональность текста. Нажав на кнопку "Определить тональность" и введя любой текст, можно узнать его тональность.
+<img width="435" height="232" alt="image" src="https://github.com/user-attachments/assets/b04deac9-703e-4327-bf6b-584782746347" />
+
+3. Генерация текста. В боте есть возможность задать любой вопрос одной из трёх LLM от крупных компаний: Gemini, Qwen и DeepSeek. Чтобы это сделать жмём на пункт "ИИ", выбираем "Текст, а затем модель и пишем вопрос.
+<img width="495" height="552" alt="image" src="https://github.com/user-attachments/assets/38a67633-fd4a-4abb-a8ed-10351d31d6cb" />
+
+4. Генерация медиаконтента. Помимо генерации текста, можно сгенерировать изображение и видео, задав необзодимый для этого промпт. Генерацией занимается модель Qwen и достпуна в пункте "ИИ" -> "Фото (Qwen)"/"Видео (Qwen)".
+<img width="526" height="655" alt="image" src="https://github.com/user-attachments/assets/4aaf3393-a856-41c2-a835-56d5e3bc442a" />
 
 ---
 
