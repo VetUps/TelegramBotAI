@@ -2,7 +2,7 @@
 
 ## Скриншот главного меню
 
-![Фото меню]![Uploading image.png…]()
+<img width="628" height="346" alt="nu" src="https://github.com/user-attachments/assets/73d4f42e-36d5-457d-a166-97a058e29db1" />
 
 ---
 
